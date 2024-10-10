@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-black-100;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border !scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    @apply active:outline-none;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center;
+  }
+
+  .black-gradient {
+    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
+
+
+  .shine-effect {
+    @apply relative inline-block font-bold text-transparent bg-clip-text  transition-all duration-300 py-[3px] ;
+    background-image: linear-gradient(
+      to right,
+      theme('colors.blue.600'),
+      theme('colors.blue.500'),
+      theme('colors.blue.400'),
+      theme('colors.blue.300'),
+      theme('colors.blue.200'),
+      theme('colors.blue.300'),
+      theme('colors.blue.400'),
+      theme('colors.blue.500'),
+      theme('colors.blue.600')
+    );
+    background-size: 200% auto;
+    animation: shine 4s linear infinite;
+    line-height: 1;    
+  }
+
+  .shine-effect::before {
+    content: "";
+    @apply absolute inset-0 bg-blue-400 opacity-0 transition-opacity duration-300 rounded-lg blur-xl;
+    z-index: -1;
+  }
+
+  .shine-effect:hover::before {
+    @apply opacity-20;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .shine-effect-p {
+    @apply relative inline-block font-bold text-transparent bg-clip-text cursor-pointer transition-all duration-300 py-[3px] ;
+    background-image: linear-gradient(
+      to right,
+      theme('colors.violet.600'),
+      theme('colors.violet.500'),
+      theme('colors.violet.400'),
+      theme('colors.violet.300'),
+      theme('colors.violet.200'),
+      theme('colors.violet.300'),
+      theme('colors.violet.400'),
+      theme('colors.violet.500'),
+      theme('colors.violet.600')
+    );
+    background-size: 200% auto;
+    animation: shine 4s linear infinite;
+    line-height: 1;    
+  }
+
+  .shine-effect::before {
+    content: "";
+    @apply absolute inset-0 bg-blue-400 opacity-0 transition-opacity duration-300 rounded-lg blur-xl;
+    z-index: -1;
+  }
+
+  .shine-effect:hover::before {
+    @apply opacity-20;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+}
